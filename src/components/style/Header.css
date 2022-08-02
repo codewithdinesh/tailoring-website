@@ -1,0 +1,223 @@
+/* responsive navbar */
+
+
+@media screen and (max-width:768px) {
+    .navbar {
+        background-color: #fff;
+        margin: 0%;
+        display: block;
+        border-radius: 10px;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+        height: 3.5rem;
+    }
+
+    .nav-items {
+        position: relative;
+        flex-direction: column;
+        left: -110%;
+        width: 100%;
+        height: fit-content !important;
+        top: 1rem;
+
+        margin-top: 0.25rem;
+        /* padding: 1rem; */
+        background-color: white;
+        transition: all 0.2s ease-out;
+        align-content: center;
+        align-items: center;
+        padding: 0px;
+
+    }
+
+    .nav-items.active {
+        position: relative;
+        top: 1rem;
+        left: 0px;
+        right: 0px;
+
+    }
+
+    .nav-item {
+        cursor: pointer;
+        list-style: none;
+        display: block;
+        width: 100%;
+        padding: 0px !important;
+
+        cursor: pointer;
+        list-style: none;
+        margin-left: 0rem;
+        align-items: center;
+
+        margin-top: 0.1rem;
+        margin-left: 0px;
+        background-color: #e2e8f0;
+        border-radius: 8px;
+
+
+    }
+
+    .nav-item :hover {
+
+        background-color: #c6d7ee;
+
+    }
+
+    .hamburger {
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+        display: block !important;
+    }
+
+    .hamburger.close {
+        transform: rotate(180deg);
+    }
+
+    .hamburger.close .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.close .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.close .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+
+}
+
+@media screen and (min-width:768px) {
+    .nav-item {
+        cursor: pointer;
+        list-style: none;
+        margin-left: 5rem;
+        align-items: center;
+    }
+
+}
+
+
+.header {
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+}
+
+
+.logo-container {
+    display: block;
+    margin-left: 5px;
+    margin-right: 5px;
+    /* position: absolute;
+    top: 1.5rem;
+    left: 3.5rem; */
+}
+
+
+.logo-container a {
+    text-decoration: none;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #e53212;
+
+}
+
+.logo-container a::hover {
+    background-color: #9e9ea7;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: 0px;
+
+}
+
+.nav-item {
+    cursor: pointer;
+    list-style: none;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0 1rem !important;
+
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-weight: 400;
+    padding: 0.25rem 1rem;
+    border-radius: 8px;
+    box-shadow:
+        0 10px 27px rgba(0, 0, 0, 0.05);
+}
+
+
+.nav-item a:hover {
+    color: white;
+    background-color: cornflowerblue;
+    transition: all 0.2s ease-out;
+}
+
+/* hide mobile nav hamburger in desktop view */
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+
+@media screen and (max-width:350px) {
+    .navbar {
+
+        background-color: #fff;
+        border-radius: 10px;
+        transition: 0.3s;
+        display: block !important;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+        height: 5.5rem;
+
+        margin: 0 auto;
+
+    }
+
+
+    .nav-items {
+        position: relative;
+        flex-direction: column;
+        left: -115%;
+        width: 100%;
+        top: 1rem;
+        margin-top: 0.25rem;
+        padding: 0;
+        /* background-color: #31302f; */
+        transition: all 0.5s ease-out;
+    }
+
+
+}

@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Offer from './components/Offer';
+import Overview from './components/Overview';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Offer title={"Buy 4 or more tailored items get 20% off"} btn={"Grab it!"} />
+      <Offer title={"Buy 2 e tailored items get 10% off"} btn={"Grab it!"} />
+      <Overview />
     </div>
   );
 }

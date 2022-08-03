@@ -48,18 +48,18 @@ const Footer = () => {
 
                             <h5 class="heading">Services</h5>
                             <ul >
-                                <li> <a href='/men'>Men </a></li>
-                                <li><a href='/women'>Women</a></li>
+                                <li> <a href='/Men'>Men</a></li>
+                                <li><a href='/Women'>Women</a></li>
 
 
                                 <li>
-                                    <a href='/jeans'>
+                                    <a href='/Jeans'>
                                         Jeans </a>
                                 </li>
 
 
                                 <li>
-                                    <a href='/custommade'>
+                                    <a href='/Custommade'>
                                         Customs made Tailored Fabric
                                     </a>
                                 </li>
@@ -71,9 +71,12 @@ const Footer = () => {
 
                         <div class="col-md-2 col-sm-4 col-xs-4 sm-mt-2">
 
-                            <h5 class="heading">Branch</h5>
+                            <h5 class="heading">Opening Hours</h5>
                             <ul class="card-text">
-                                <li>Ratnagiri</li>
+                                <li>Mon-Sat 10.00 to 22.00.</li>
+                                <li>Sunday  11.00 to 22.00.</li>
+                                <li>Closed on religious holidays.</li>
+
 
                             </ul>
 
@@ -85,13 +88,12 @@ const Footer = () => {
                             <h5 class="heading">About Us</h5>
                             <ul class="card-text">
                                 <li>
-                                    <a href='/contacts'>
+                                    <a href='./Contact' target={'blank'}>
                                     Contact
                                     </a>
                                     </li>
-
                                 <li>
-                                    <a href='/faq'>
+                                    <a href='./Faq'>
                                     FAQs</a>
                                     </li>
 

@@ -1,7 +1,7 @@
 /* responsive navbar */
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1068px) {
     .navbar {
         background-color: #fff;
         margin: 0%;
@@ -124,13 +124,14 @@
     /* position: absolute;
     top: 1.5rem;
     left: 3.5rem; */
+
 }
 
 
 .logo-container a {
     text-decoration: none;
     font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Mochiy Pop One', sans-serif;
     font-weight: bold;
     color: #e53212;
 

@@ -3,7 +3,7 @@ import "./style/Offers.css";
 
 const Offer = ({ title, btn }) => {
     return (
-        <div className='Offer'>
+        <div className='Offer' >
 
             <div class="title">
                 <p >{title} </p>

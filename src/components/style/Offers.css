@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
-
 .Offer {
     padding: 1rem;
     background-image: linear-gradient(150deg, #f2f6d6 40%, #ff7d5c);
@@ -21,6 +19,7 @@
 
     margin: 0.1rem;
     text-align: center;
+    color: #ac6412;
 
 }
 

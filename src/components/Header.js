@@ -60,14 +60,14 @@ const Header = () => {
                         <li className="nav-item" >
 
                             <Link to="/men" >
-                                Men
+                                Men's Clothing
                             </Link>
 
                         </li>
                         <li className="nav-item">
 
                             <Link to="/woman" >
-                                Women
+                                Women's Clothing
                             </Link>
 
                         </li>
@@ -95,8 +95,20 @@ const Header = () => {
                 </nav>
             </BrowserRouter>
 
+
         </header>
     )
 }
 
-export default Header
+export default Header;
+
+/* API :/register - user registration 
+        /login - user login
+        /explore - return all the products - return category
+        /cart - add orders here and show bill
+        /order/:id  -  order service 
+        /explore/:category-name
+        /offers
+        /offer/:id -> redirect to service page 
+        
+*/

@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import Faq from './components/Faq';
+
+import Contact from './components/Contact';
+import Login from './components/Login';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

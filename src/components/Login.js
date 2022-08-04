@@ -1,9 +1,10 @@
 import React from 'react'
-
+import {BrowserRouter as Router,Link,Route,Routes} from 'react-router-dom';
 export default function Login() {
   return (
  <>
     <div>
+<Route>
 
 <section class="vh-100">
   <div class="container-fluid h-custom">
@@ -35,7 +36,7 @@ export default function Login() {
           {/* <!-- Email input --> */}
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
+              placeholder="Enter Link valid email address" />
             <label class="form-label" for="form3Example3">Email address</label>
           </div>
 
@@ -54,14 +55,14 @@ export default function Login() {
                 Remember me
               </label>
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
+            <Link to="#!" class="text-body">Forgot password?</Link>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="button" class="btn btn-primary btn-lg"
               >Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                class="link-danger">Register</a></p>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to="#!"
+                class="link-danger">Register</Link></p>
           </div>
 
         </form>
@@ -72,68 +73,45 @@ export default function Login() {
     class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
     {/* <!-- Copyright --> */}
     <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
+      Copyright © 2022. All rights reserved.
     </div>
     {/* <!-- Copyright --> */}
 
     {/* <!-- Right --> */}
     <div>
-      <a href="#!" class="text-white me-4">
+      <Link to="#!" class="text-white me-4">
         <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
+      </Link>
+      <Link to="#!" class="text-white me-4">
         <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
+      </Link>
+      <Link to="#!" class="text-white me-4">
         <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
+      </Link>
+      <Link to="#!" class="text-white">
         <i class="fab fa-linkedin-in"></i>
-      </a>
+      </Link>
     </div>
     {/* <!-- Right --> */}
   </div>
 </section>
 
 
+</Route>
 
 </div>
 
 
 
 
-<div class="row" style={{ fontSize: "10px" }}>
-
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-
-                            <div class="pull-left">
-
-                                <p><i class="fa-copyright"></i> &copy; All Rights Reserved. 2022</p>
-
-                            </div>
-
-                        </div>
 
 
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
 
 
-                            <div class="pull-right mr-4 d-flex policy">
-
-                                <div>Terms of Use</div>
-                                <div>Privacy Policy</div>
-                                <div>Cookie Policy</div>
-                               
-                            </div>
 
 
-                            
-                        </div>
 
-
-                        <hr />
-                    </div>
 
 
  </>

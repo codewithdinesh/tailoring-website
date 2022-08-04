@@ -1,10 +1,21 @@
 import React from 'react'
 import "./style/Footer.css"
-
+import Contact from './/Contact';
+import Faq from './/Faq';
+import { BrowserRouter as Router,Link,Routes,Route} from 'react-router-dom'
 
 const Footer = () => {
     return (
+<Router>
 
+<Routes>
+          <Route path="/Faq">
+            <Faq/>
+          </Route>
+          <Route path="/Contact">
+            <Contact/>
+          </Route>
+        </Routes>
         <div>
             <div class="container-max">
 
@@ -24,8 +35,8 @@ const Footer = () => {
                                 <div class="mapouter">
                                     <div class="gmap_canvas">
                                         <iframe width="508" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=%2016.990894323986005,%2073.28742859224732&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                                        </iframe><a href="https://fmovies-online.net">
-                                        </a><br /><a href="https://www.embedgooglemap.net"></a>
+                                        </iframe><Link to="https://fmovies-online.net">
+                                        </Link><br /><Link to="https://www.embedgooglemap.net"></Link>
                                     </div>
                                 </div>
 
@@ -48,20 +59,20 @@ const Footer = () => {
 
                             <h5 class="heading">Services</h5>
                             <ul >
-                                <li> <a href='/Men'>Men</a></li>
-                                <li><a href='/Women'>Women</a></li>
+                                <li> <Link to='/Men'>Men</Link></li>
+                                <li><Link to='/Women'>Women</Link></li>
 
 
                                 <li>
-                                    <a href='/Jeans'>
-                                        Jeans </a>
+                                    <Link to='/Jeans'>
+                                        Jeans </Link>
                                 </li>
 
 
                                 <li>
-                                    <a href='/Custommade'>
+                                    <Link to='/Custommade'/>
                                         Customs made Tailored Fabric
-                                    </a>
+                                 
                                 </li>
 
                             </ul>
@@ -88,13 +99,14 @@ const Footer = () => {
                             <h5 class="heading">About Us</h5>
                             <ul class="card-text">
                                 <li>
-                                    <a href='./Contact' target={'blank'}>
+                                    <Link to='/Contact'>
                                     Contact
-                                    </a>
+                                    </Link>
+                                    
                                     </li>
                                 <li>
-                                    <a href='./Faq'>
-                                    FAQs</a>
+                                    <Link to='/Faq'>
+                                    FAQs</Link>
                                     </li>
 
                             </ul>
@@ -145,7 +157,7 @@ const Footer = () => {
             </div>
         </div>
 
-
+</Router>
 
     )
 }
@@ -155,4 +167,3 @@ export default Footer
 
 
 
-{/* https://mdbootstrap.com/docs/standard/navigation/footer/ */ }

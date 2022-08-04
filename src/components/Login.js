@@ -64,8 +64,8 @@ function Login() {
                 </button>
 
                 <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
-                  <Link to="#" key="register"
-                    class="link-danger">Register</Link></p>
+                  <Link to="/Signup" key="Signup"
+                    class="link-danger">Signup</Link></p>
               </div>
 
             </form>

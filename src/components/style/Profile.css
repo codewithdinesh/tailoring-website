@@ -1,0 +1,13 @@
+.p-3.border.bg-light{
+    border-radius: 10px !important;
+
+}
+.p-3.border.bg-light:hover{
+    /* background-color:bisque !important; */
+    background-color: rgba(0,0,0,.5) !important;
+    transition: 0.35s;
+    border-radius: 10px !important;
+} 
+
+
+

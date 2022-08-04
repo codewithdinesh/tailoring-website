@@ -50,19 +50,18 @@ const Header = () => {
 
                     <li className="nav-item">
 
-                        <Link to="/explore"> Explore  </Link >
-
+                        <Link to="/signup"> Signup  </Link >
 
                     </li>
 
                     <li className="nav-item" >
 
-                        <Link to="/men" >
-                            Men's Clothing
+                        <Link to="/Profile" >
+                            Your Account
                         </Link>
-
                     </li>
         
+
                     <li className="nav-item cart">
 
                         <Link to="/cart">

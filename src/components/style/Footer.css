@@ -1,8 +1,10 @@
-body {
+.footer {
     background-color: #f3f6fd;
     font-size: 11.5px;
     font-weight: bold;
     color: rgb(189, 196, 203);
+    /* clear: both; */
+
 }
 
 .logo {
@@ -19,7 +21,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    
+
 }
 
 ul>li {
@@ -51,7 +53,7 @@ hr {
 
 a {
     text-decoration: none;
-    color:grey;
+    color: grey;
 }
 
 .heading {

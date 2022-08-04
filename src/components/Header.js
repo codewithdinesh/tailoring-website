@@ -1,13 +1,11 @@
 
 import React, { useState } from 'react'
 import "./style/Header.css"
-
 import {
-    BrowserRouter,
+
     Link
 
 } from "react-router-dom";
-import Offer from './Offer';
 
 const Header = () => {
 
@@ -28,72 +26,64 @@ const Header = () => {
 
     return (
         <header class="header">
-            <BrowserRouter>
-                <nav class="navbar">
+        
+            <nav class="navbar">
 
-                    {/* Mobile */}
-                    <div class={`hamburger ${close}`} onClick={OpenNav}>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+                {/* Mobile */}
+                <div class={`hamburger ${close}`} onClick={OpenNav}>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
 
-                    <div class="logo-container">
+                <div class="logo-container">
 
-                        <Link to='/' style={{ textDecoration: "none" }}>
+                    <Link to='/' style={{ textDecoration: "none" }}>
 
-                            YAX<span> Tailors</span>
+                        YAX<span> Tailors</span>
 
+                    </Link>
+                </div>
+
+
+                <ul class={`nav-items  ${state}`}>
+
+                    <li className="nav-item">
+
+                        <Link to="/explore"> Explore  </Link >
+
+
+                    </li>
+
+                    <li className="nav-item" >
+
+                        <Link to="/men" >
+                            Men's Clothing
                         </Link>
-                    </div>
+
+                    </li>
+        
+                    <li className="nav-item cart">
+
+                        <Link to="/cart">
+                            Cart
+                        </Link>
+
+                    </li>
+                    <li className="nav-item login">
+
+                        <Link to="/login" className='login' >
+                            Login
+                        </Link>
+
+                    </li>
 
 
-                    <ul class={`nav-items  ${state}`}>
-
-                        <li className="nav-item">
-
-                            <Link to="/explore"> Explore  </Link >
+                </ul>
 
 
-                        </li>
-
-                        <li className="nav-item" >
-
-                            <Link to="/men" >
-                                Men's Clothing
-                            </Link>
-
-                        </li>
-                        <li className="nav-item">
-
-                            <Link to="/woman" >
-                                Women's Clothing
-                            </Link>
-
-                        </li>
-                        <li className="nav-item cart">
-
-                            <Link to="/cart">
-                                Cart
-                            </Link>
-
-                        </li>
-                        <li className="nav-item login">
-
-                            <Link to="/login" className='login' >
-                                Login
-                            </Link>
-
-                        </li>
-
-                        {/* </Routes>
-                    </BrowserRouter> */}
-
-                    </ul>
-
-
-                </nav>
-            </BrowserRouter>
+            </nav>
+  
 
 
         </header>

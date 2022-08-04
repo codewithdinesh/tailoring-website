@@ -1,22 +1,13 @@
 import React from 'react'
 import "./style/Footer.css"
-import Contact from './/Contact';
+import Contact from './Contact';
 import Faq from './/Faq';
-import { BrowserRouter as Router,Link,Routes,Route} from 'react-router-dom'
+import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 
 const Footer = () => {
     return (
-<Router>
 
-<Routes>
-          <Route path="/Faq">
-            <Faq/>
-          </Route>
-          <Route path="/Contact">
-            <Contact/>
-          </Route>
-        </Routes>
-        <div>
+        <div className='footer'>
             <div class="container-max">
 
                 <div class="card bg-white p-3 ">
@@ -60,19 +51,16 @@ const Footer = () => {
                             <h5 class="heading">Services</h5>
                             <ul >
                                 <li> <Link to='/Men'>Men</Link></li>
-                                <li><Link to='/Women'>Women</Link></li>
-
-
+                               
                                 <li>
-                                    <Link to='/Jeans'>
-                                        Jeans </Link>
+                                    <Link to='/Jeans'> Jeans </Link>
                                 </li>
 
 
                                 <li>
-                                    <Link to='/Custommade'/>
-                                        Customs made Tailored Fabric
-                                 
+                                    <Link to='/Custommade' />
+                                    Customs made Tailored Fabric
+
                                 </li>
 
                             </ul>
@@ -100,14 +88,14 @@ const Footer = () => {
                             <ul class="card-text">
                                 <li>
                                     <Link to='/Contact'>
-                                    Contact
+                                        Contact
                                     </Link>
-                                    
-                                    </li>
+
+                                </li>
                                 <li>
                                     <Link to='/Faq'>
-                                    FAQs</Link>
-                                    </li>
+                                        FAQs</Link>
+                                </li>
 
                             </ul>
 
@@ -157,7 +145,6 @@ const Footer = () => {
             </div>
         </div>
 
-</Router>
 
     )
 }

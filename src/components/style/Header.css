@@ -1,16 +1,20 @@
 /* responsive navbar */
 
 
-@media screen and (max-width:1068px) {
+@media screen and (max-width:1180px) {
     .navbar {
         background-color: #fff;
         margin: 0%;
-        display: block;
+        display: flex;
         border-radius: 10px;
         transition: 0.3s;
         box-shadow:
             0 10px 27px rgba(0, 0, 0, 0.05);
         height: 3.5rem;
+        padding: 0px;
+        z-index: 2;
+        align-items: center;
+        align-self: center;
     }
 
     .nav-items {
@@ -18,25 +22,18 @@
         flex-direction: column;
         left: -110%;
         width: 100%;
-        height: fit-content !important;
-        top: 1rem;
-
-        margin-top: 0.25rem;
-        /* padding: 1rem; */
-        background-color: white;
-        transition: all 0.2s ease-out;
-        align-content: center;
-        align-items: center;
-        padding: 0px;
-
+        top: 0.70rem;
+        margin-top: 1rem;
+        padding: 0.25rem;
+        border-radius: 8px;
+        background-color: #ffffff;
+        transition: all 0.5s ease-out;
+        opacity: 2;
     }
 
     .nav-items.active {
         position: relative;
-        top: 1rem;
-        left: 0px;
-        right: 0px;
-
+        left: 0%;
     }
 
     .nav-item {
@@ -44,24 +41,31 @@
         list-style: none;
         display: block;
         width: 100%;
-        padding: 0px !important;
-
-        cursor: pointer;
-        list-style: none;
-        margin-left: 0rem;
-        align-items: center;
-
-        margin-top: 0.1rem;
+        margin-top: 0.2rem;
         margin-left: 0px;
-        background-color: #e2e8f0;
         border-radius: 8px;
+        background-color: #eeeaff;
 
 
     }
 
-    .nav-item :hover {
+    .nav-item a {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0.25rem 0.5rem;
+        text-decoration: none;
+        color: rgb(37, 37, 37);
+        font-weight: 400;
+        border-radius: 8px;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease-out;
+    }
 
-        background-color: #c6d7ee;
+
+    .nav-item a:hover {
+        color: white;
+        background-color: cornflowerblue;
 
     }
 
@@ -90,20 +94,14 @@
 
 }
 
-@media screen and (min-width:768px) {
-    .nav-item {
-        cursor: pointer;
-        list-style: none;
-        margin-left: 5rem;
-        align-items: center;
-    }
 
-}
+
 
 
 .header {
     border-bottom: 1px solid #e2e8f0;
     text-align: center;
+    align-items: center;
 }
 
 
@@ -112,7 +110,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem .5rem;
+    transition: 0.3s;
+    box-shadow:
+        0 10px 27px rgba(0, 0, 0, 0.05);
+    flex: 1;
 
 }
 
@@ -145,7 +147,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
     margin: 0px;
 
 }
@@ -154,26 +155,28 @@
     cursor: pointer;
     list-style: none;
     align-items: center;
-    border-radius: 8px;
-    padding: 0 1rem !important;
+    border-radius: 10px;
 
 }
 
 .nav-item a {
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem 0.5rem;
     text-decoration: none;
     color: rgb(37, 37, 37);
     font-weight: 400;
-    padding: 0.25rem 1rem;
     border-radius: 8px;
     box-shadow:
         0 10px 27px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-out;
 }
 
 
 .nav-item a:hover {
     color: white;
     background-color: cornflowerblue;
-    transition: all 0.2s ease-out;
+
 }
 
 /* hide mobile nav hamburger in desktop view */

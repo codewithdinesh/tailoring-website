@@ -7,31 +7,36 @@ import Footer from './components/Footer';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import { Main } from './components/Main';
-import {BrowserRouter as Router,Link,Routes,Route} from 'react-router-dom';
+import Men from "./components/pages/Men";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
 
-<Route>
-
-
-
     <div className="App">
-      <Header className="container-max" />
-      <Offer title={"Buy 4 or more tailored items get 20% off"} btn={"Grab it!"} />
-      <Offer title={"Buy 2 e tailored items get 10% off"} btn={"Grab it!"} />
-      <Overview />
-      <Main />
-      <Footer />
+
+      <Router>
+
+        <Header />
 
 
+        <Routes>
+          <Route exact path="/" element={<Main />} />
+
+          <Route path="/faq" element={<Faq />} />
 
 
-    {/* <Contact/> */}
-    {/* <Faq/> */}
-{/* <Login/> */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+
+        <Footer />
+        {/* <Contact /> */}
+        {/* <Faq /> */}
+        {/* <Login /> */}
+      </Router>
 
     </div>
-</Route>
   );
 }
 

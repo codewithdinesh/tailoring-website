@@ -1,25 +1,26 @@
 import React from 'react'
-import video from "./resources/feature_video.mp4"
-import Background from "./resources/feature-image.jpg"
-import "./style/Overview.css"
+
+import "../style/Overview.css"
+import { Link } from 'react-router-dom'
 
 const Overview = () => {
     return (
         <div className='overview'>
             <div className="content">
+                <h1>Online Tailor Services – Let Us Create Your Style</h1>
                 <p>
                     A few simple steps towards your perfect fit
                 </p>
-                <a href='/get-started'>
 
 
-                    <button>
-                        Get started
-                        &#8594;
 
+                <button>       <Link to="/contact">
+                    Contact Us
+                    &#8594;
 
-                    </button>
-                </a>
+                </Link>
+                </button>
+
 
             </div>
             {/* <video src={video}></video> */}

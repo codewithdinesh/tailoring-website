@@ -1,7 +1,6 @@
 import React from 'react'
-import "./style/Footer.css"
-import Contact from './Contact';
-import Faq from './/Faq';
+import "../style/Footer.css"
+
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 
 const Footer = () => {
@@ -25,7 +24,7 @@ const Footer = () => {
 
                                 <div class="mapouter">
                                     <div class="gmap_canvas">
-                                        <iframe width="508" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=%2016.990894323986005,%2073.28742859224732&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                                        <iframe width="450" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=%2016.990894323986005,%2073.28742859224732&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                                         </iframe><Link to="https://fmovies-online.net">
                                         </Link><br /><Link to="https://www.embedgooglemap.net"></Link>
                                     </div>
@@ -50,15 +49,15 @@ const Footer = () => {
 
                             <h5 class="heading">Services</h5>
                             <ul >
-                                <li> <Link to='/Men'>Men</Link></li>
-                               
+                                <li> <Link to='#'>Men</Link></li>
+
                                 <li>
-                                    <Link to='/Jeans'> Jeans </Link>
+                                    <Link to='#'> Jeans </Link>
                                 </li>
 
 
                                 <li>
-                                    <Link to='/Custommade' />
+                                    <Link to='#' />
                                     Customs made Tailored Fabric
 
                                 </li>

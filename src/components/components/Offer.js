@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style/Offers.css";
+import "../style/Offers.css";
 
 const Offer = ({ title, btn }) => {
     return (

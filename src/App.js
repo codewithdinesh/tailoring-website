@@ -1,17 +1,18 @@
 import './App.css';
-import Faq from './components/Faq';
-import Header from './components/Header';
-import Offer from './components/Offer';
-import Cart from './components/Cart';
-import Overview from './components/Overview';
-import Footer from './components/Footer';
-import Contact from './components/Contact';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import { Main } from './components/Main';
-import Men from "./components/pages/Men";
-import Profile from "./components/Profile";
+import Faq from './components/pages/Faq';
+import Header from './components/components/Header';
+import Offer from './components/components/Offer';
+import Cart from './components/pages/Cart';
+import Overview from './components/components/Overview';
+import Footer from './components/components/Footer';
+import Contact from './components/pages/Contact';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
+import { Main } from './components/pages/Main';
+
+import Profile from "./components/pages/Profile";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Product from './components/pages/Product';
 function App() {
   return (
 
@@ -29,20 +30,19 @@ function App() {
 
 
           <Route path="/contact" element={<Contact />} />
-          <Route path="/men" element={<Men />} />
+
           <Route path="/login" element={<Login />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/product" element={<Product />} />
+
+
         </Routes>
 
         <Footer />
-
-        {/* <Contact /> */}
-        {/* <Faq /> */}
-        {/* <Login /> */}
-
+        {/* <Cart /> */}
       </Router>
-        {/* <Profile/> */}
-{/* <Signup/> */}
-        {/* <Cart/> */}
+
 
     </div>
   );

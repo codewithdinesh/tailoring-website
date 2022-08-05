@@ -1,13 +1,27 @@
-.p-3.border.bg-light{
-    border-radius: 10px !important;
-
+.profile-container {
+    margin: 1.5rem !important;
+    position: relative;
+    top: 2rem;
+    height: 18rem;
 }
-.p-3.border.bg-light:hover{
+#pedithead{
+    font-family:M;
+}
+.profile-col {
+    width: 100%;
+    margin: 0.2rem !important;
+}
+
+.profile-element {
+    border-radius: 10px !important;
+    width: 100%;
+    margin: 0.2rem;
+}
+
+
+.profile-element:hover {
     /* background-color:bisque !important; */
-    background-color: rgba(0,0,0,.5) !important;
+    background-color: rgba(246, 151, 151, 0.5) !important;
     transition: 0.35s;
     border-radius: 10px !important;
-} 
-
-
-
+}

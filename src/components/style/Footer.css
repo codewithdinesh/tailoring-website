@@ -3,6 +3,7 @@
     font-size: 11.5px;
     font-weight: bold;
     color: rgb(189, 196, 203);
+    position: relative;
     /* clear: both; */
 
 }
@@ -74,13 +75,14 @@ a {
 .mapouter {
     position: relative;
     text-align: right;
-    height: 254px;
+    height: 150px;
     width: 100%;
+    margin-bottom:20px;
 }
 
 .gmap_canvas {
     overflow: hidden;
     background: none !important;
-    height: 254px;
+    height: 200px;
     width: 100%;
 }

@@ -1,14 +1,12 @@
 .overview {
-
     background-image: url("../resources/feature-image.jpg");
     width: 100%;
     background-position: center;
     background-size: cover;
     height: 40rem;
-    margin-bottom: 100px;
+    margin-bottom: 1rem;
     font-family: 'Mochiy Pop One', sans-serif;
     display: flex;
-
     align-items: center;
     justify-items: center;
     background-color: rgb(200, 213, 237);
@@ -23,6 +21,16 @@
     text-shadow: 2px 5px 1px black;
 
 }
+
+.overview .content p {
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 5px 1px black;
+
+}
+
 
 .overview button {
     border: none;

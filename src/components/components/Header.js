@@ -1,10 +1,7 @@
-
 import React, { useState } from 'react'
-import "./style/Header.css"
+import "../style/Header.css"
 import {
-
     Link
-
 } from "react-router-dom";
 
 const Header = () => {
@@ -14,7 +11,6 @@ const Header = () => {
 
 
     const OpenNav = () => {
-
         if (state === "none") {
             setSate("active")
             setClose("close")
@@ -26,7 +22,6 @@ const Header = () => {
 
     return (
         <header class="header">
-        
             <nav class="navbar">
 
                 {/* Mobile */}
@@ -37,53 +32,38 @@ const Header = () => {
                 </div>
 
                 <div class="logo-container">
-
                     <Link to='/' style={{ textDecoration: "none" }}>
-
                         YAX<span> Tailors</span>
-
                     </Link>
                 </div>
 
-
                 <ul class={`nav-items  ${state}`}>
-
                     <li className="nav-item">
-
                         <Link to="/signup"> Signup  </Link >
 
                     </li>
 
                     <li className="nav-item" >
-
                         <Link to="/Profile" >
                             Your Account
                         </Link>
                     </li>
-        
 
                     <li className="nav-item cart">
 
                         <Link to="/cart">
                             Cart
                         </Link>
-
                     </li>
                     <li className="nav-item login">
-
                         <Link to="/login" className='login' >
                             Login
                         </Link>
-
                     </li>
-
 
                 </ul>
 
-
             </nav>
-  
-
 
         </header>
     )

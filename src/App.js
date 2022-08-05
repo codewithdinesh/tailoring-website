@@ -25,22 +25,21 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Main />} />
-
-          <Route path="/faq" element={<Faq />} />
-
-
+          <Route path="/faq" element={<Faq img="true" />} />
           <Route path="/contact" element={<Contact />} />
-
           <Route path="/login" element={<Login />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/product" element={<Product />} />
 
-
         </Routes>
 
-        <Footer />
+
         {/* <Cart /> */}
+
+        <Routes>
+
+        </Routes>
       </Router>
 
 

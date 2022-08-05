@@ -3,6 +3,7 @@ import Product from "../components/Product"
 import Offer from '../components/Offer'
 import Overview from '../components/Overview'
 import "../style/Main.css"
+import Footer from '../components/Footer'
 
 
 export const Main = () => {
@@ -50,6 +51,8 @@ export const Main = () => {
                 </div>
 
             </div>
+
+            <Footer />
         </>
 
     )

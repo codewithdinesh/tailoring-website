@@ -2,15 +2,20 @@ import React from 'react'
 import { Accordion } from "react-bootstrap";
 import "../style/Faq.css"
 
-export default function Faq() {
+export default function Faq(props) {
   return (
     <div className='container'>
       <div className="faq-container m-2">
 
-        <div className='img-fluid faq-img-container'>
-          <img src="./Images/faq_img.svg" className='faq-img' alt="faq" />
 
-        </div>
+        {props.img ?
+
+          <div className='img-fluid faq-img-container'>
+            <img src="./Images/faq_img.svg" className='faq-img' alt="faq" />
+
+          </div>
+          : null};
+
         <h3 className="faq-title"> Frequently Asked Questions </h3>
 
 
@@ -123,11 +128,15 @@ export default function Faq() {
               <div className='how-its-works container'>
 
                 <p className='steps'>
+
                   We’ll alter them at no extra charge based on the feedback you provide. And we’ll learn from the process by recording your final measurements for future use.
+
                 </p>
 
               </div>
+
             </Accordion.Body>
+
           </Accordion.Item>
 
         </Accordion>

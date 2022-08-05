@@ -3,6 +3,9 @@
     width: 100%;
 }
 
+
+
+
 .product-content-img img {
     width: 100% !important;
     height: 100%;
@@ -12,7 +15,43 @@
     text-align: left !important;
 }
 
+#features{
+
+    list-style-type:disc;
+
+}
+.card-body{
+    font-family:  'Trebuchet MS', sans-serif;
+}
+.d-flex.justify-content-between.align-items-center{
+margin: 2rem ;
+
+}
+.btn.btn-primary.mx-md-5{
+    padding: 15px 40px;
+    border-radius: 50px;
+    background-color:#554941 ;
+    border: none;
+
+}
+.tablecontainer{
+margin: 2rem 0rem;
+
+}
+
+
+
+.btn.btn-primary.mx-md-5:hover {
+    border: none;
+    background-color: #ffcaa6;
+    color: rgb(223, 219, 219);
+}
+
+
+
 .product-container .svg-icon {
     height: 35px;
     width: 35px;
 }
+
+

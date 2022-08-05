@@ -21,7 +21,6 @@ const Product = ({ product }) => {
                                         <div className='img-fluid '>
 
                                             <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" className='login-img' alt="login" />
-
                                         </div>
                                     </div>
                                     <div class="col-md-10 col-lg-6 col-xl-7 align-items-center order-2 order-lg-2">
@@ -29,11 +28,11 @@ const Product = ({ product }) => {
                                         <div class="card-body">
                                             <p class="product-title h3">Jeans</p>
                                             <p class="type-colth">(Bell Bottom/Narrow Bottom)</p>
-                                            <p class="product-price ">Buy Now Only @ $399</p>
+                                            <h3 class="product-price ">Buy Now Only @ $399/-</h3>
                                             <p className='product-description'> Brand new Ripped Jeans by Johnson & sons in Navy Blue Shade. </p>
 
 
-                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <div class="d-flex justify-content-between align-items-center">
 
 
                                                 <div class="product-card-button px-3 text-center h3">cart
@@ -44,21 +43,112 @@ const Product = ({ product }) => {
                                                     </svg>
                                                 </div>
 
-                                                <button type="button" class="btn btn-primary mx-md-4">Buy now</button>
+                                                <button  type="button" class="btn btn-primary mx-md-5" >Buy now</button>
                                             </div>
 
-                                            {/* DETAILS */}
-                                            <p className='product-description-details '>
-                                                <span>Free Shipping Over 200 </span>
-                                                <span>Fit guarantee</span>
-                                            </p>
-
+                                            <ul id='features'>
+		<li><span class="fal fa-check"></span>Free shipping over $500
+        </li>
+        <li><span class="fal fa-check"></span>Fit guarantee.</li>
+        <li><span class="fal fa-check"></span>Free Alterations!</li>
+        <li><span class="fal fa-check"></span>Buy 2 get flat 30% off!</li>
+                                            </ul>
+	
 
 
                                         </div>
+{/* 
+                                        <div className='tablecontainer'>
+
+<table>
 
 
+                                        <tbody>
+		<tr>
+	<td>
+		Fabric	</td>
+	<td>
+		<span>
+			<a class="modalLink" href="https://www.tailorstore.co.in/catalog/product/quickview/product_id/13239" rel="nofollow">Burlington, light blue</a>
+			(97% Cotton, 3% Lycra)
+		</span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Collar	</td>
+	<td>
+		<span>
+			<a class="modalLink" href="/our-shirt-collars?layout=simple#25" rel="nofollow">Turndown Classic</a>
+		</span>
+	</td>
+</tr><tr>
+	<td>
+		Cuff	</td>
+	<td>
+		<span>Single button </span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Button	</td>
+	<td>
+		<span>Boiro, light blue </span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Opacity	</td>
+	<td>
+									<span class="fas fa-circle fg-blue-contrast-light"></span>
+												<span class="fas fa-circle fg-blue-contrast-light"></span>
+												<span class="fas fa-circle fg-blue-contrast-light"></span>
+												<span class="fas fa-circle fg-blue-contrast-light"></span>
+												<span class="fas fa-circle fg-blue-contrast-light"></span>
+							<span class="m-1-l">Very opaque  </span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Colour	</td>
+	<td>
+		<span><a href="https://www.tailorstore.co.in/dress-shirts/men/blue-shirts">Blue</a> </span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Pattern	</td>
+	<td>
+		<span><a href="https://www.tailorstore.co.in/dress-shirts/men/solid-color-shirts">Solid color</a> </span>
+	</td>
+</tr>
+<tr>
+	<td>
+		Weave	</td>
+	<td>
+		<span><a href="https://www.tailorstore.co.in/dress-shirts/men?filters=917">Dobby</a> </span>
+	</td>
+</tr>
+<tr class="hide">
+    <td>
+	    <span itemprop="brand" itemtype="https://schema.org/Brand" itemscope="">
+		    <meta itemprop="name" content="Tailor Store"/>
+	    </span>
+    </td>
+</tr>
+<tr class="hide">
+	<td>
+		SKU	</td>
+	<td>
+		<span itemprop="sku">26-13349 </span>
+	</td>
+</tr>
+		</tbody>
+	
 
+</table> 
+            </div> 
+*/}
                                     </div>
 
                                 </div>

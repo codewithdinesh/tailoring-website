@@ -15,14 +15,17 @@
 
     /*Hover*/
     .product-card-img:hover {
+
         transform: translateY(-5%) !important;
         box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+
     }
 
 }
 
 
 .product-card {
+
     width: 14rem;
     height: 320px;
     padding: .8em;
@@ -30,6 +33,7 @@
     position: relative;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin: 1rem;
+
 }
 
 .product-card-img {
@@ -94,13 +98,21 @@ svg {
     transform: translateY(-25%);
     box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
 
+
 }
 
 .product-card-button:hover {
 
     border: 1px solid #ffcaa6;
     background-color: #ffcaa6;
+    box-shadow: 1px 0px 35px 1px rgba(153, 153, 153, 0.47);
 
+}
+
+
+.buy-now:hover{
+    color:black !important;
+    box-shadow: 1px 0px 35px 1px rgba(153, 153, 153, 0.47);
 }
 
 a {

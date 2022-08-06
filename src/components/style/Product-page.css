@@ -1,9 +1,7 @@
 .product-content-img {
     height: 100% !important;
-    width: 100%;
+    width: 100% !important;
 }
-
-
 
 
 .product-content-img img {
@@ -38,7 +36,19 @@ margin: 2rem ;
 margin: 2rem 0rem;
 
 }
+.img-fluid{
+height: 35rem;
+width:27rem;
 
+
+}
+
+ .product-img{
+height: 100%;
+width:100%;
+
+
+}
 
 
 .btn.btn-primary.mx-md-5:hover {

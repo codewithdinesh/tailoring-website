@@ -1,7 +1,10 @@
 require("dotenv").config();
+
 const router = require("./Routes/routes");
 
 const bodyParser = require("body-parser");
+
+const cookieParser = require('cookie-parser');
 
 const express = require("express");
 
@@ -16,6 +19,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(cookieParser());
 
 
 // Router

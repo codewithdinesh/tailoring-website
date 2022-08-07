@@ -1,10 +1,10 @@
 import React from 'react'
-
+import "../style/Cart.css";
 export default function Cart() {
   return (
     <div>
 
-      <section class="h-100 h-custom" style={{ backgroundColor: "#d2c9ff" }}>
+      <section class="h-100 h-custom" style={{ backgroundColor: "rgb(207, 187, 176)" }}>
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12">
@@ -14,8 +14,8 @@ export default function Cart() {
                     <div class="col-lg-8">
                       <div class="p-5">
                         <div class="d-flex justify-content-between align-items-center mb-5">
-                          <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                          <h6 class="mb-0 text-muted">3 items</h6>
+                          <h1 class="fw-bold mb-0 text-white">Shopping Cart</h1>
+
                         </div>
                         <hr class="my-4" />
 
@@ -27,7 +27,7 @@ export default function Cart() {
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-3">
                             <h6 class="text-muted">Shirt</h6>
-                            <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                            <h6 class="text-white mb-0">Cotton T-shirt</h6>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                             <button class="btn btn-link px-2"
@@ -61,7 +61,7 @@ export default function Cart() {
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-3">
                             <h6 class="text-muted">Shirt</h6>
-                            <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                            <h6 class="text-white mb-0">Cotton T-shirt</h6>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                             <button class="btn btn-link px-2"
@@ -95,7 +95,7 @@ export default function Cart() {
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-3">
                             <h6 class="text-muted">Shirt</h6>
-                            <h6 class="text-black mb-0">Cotton T-shirt</h6>
+                            <h6 class="text-white mb-0">Cotton T-shirt</h6>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                             <button class="btn btn-link px-2"
@@ -165,7 +165,7 @@ export default function Cart() {
                         </div>
 
                         <button type="button" class="btn btn-dark btn-block btn-lg"
-                          data-mdb-ripple-color="dark">Register</button>
+                          data-mdb-ripple-color="dark">Order Now</button>
 
                       </div>
                     </div>

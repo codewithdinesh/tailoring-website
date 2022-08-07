@@ -8,22 +8,26 @@ import Footer from "../components/Footer";
 const products = [
   {
     title: "Jeans",
-    description: "Ripped Jeans by Joh",
+    description: "We design customise Ripped Jeans As per your Specification",
     price: "600",
     mrp_price: "1000",
-    cloth_type: "Ripped Jeans",
+    subtitle: "Ripped Jeans",
     img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
     productID: "10",
+    rating: "4.3",
+    rating_count: "10"
   },
 
   {
     title: "Jeans",
-    description: "Ripped Jeans by Joh",
-    price: "0",
-    mrp_price: "100000",
-    cloth_type: "Ripped Jeans",
+    description: "We design customise Ripped Jeans As per your Specification",
+    price: "600",
+    mrp_price: "1000",
+    subtitle: "Ripped Jeans",
     img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    productID: "11",
+    productID: "10",
+    rating: "4.3",
+    rating_count: "10"
   },
 ];
 

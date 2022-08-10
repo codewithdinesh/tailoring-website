@@ -15,23 +15,23 @@ const ProductSchema = new mongoose.Schema({
         required: [true, "description required"],
     },
     price: {
-        type: Number,
+        type: String,
         required: [true, "Price required"],
     },
     mrp: {
-        type: Number,
+        type: String,
         required: [true, "Mrp required"],
     },
     rating: {
-        type: Number,
+        type: String,
         required: [true, "Rating required"],
     },
     ratingCount: {
-        type: Number,
+        type: String,
         required: [true, "Rating Count required"],
     }
 });
 
 const Product = mongoose.model("product", ProductSchema);
 
-module.exports = User;
+module.exports = Product;

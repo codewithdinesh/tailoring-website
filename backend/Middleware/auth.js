@@ -35,7 +35,7 @@ const Auth = (req, res, next) => {
                 } else {
 
                     req.user = decoded.user_id;
-                    req.user_email = result.email;
+                    req.location = result.location;
 
                     return next();
 

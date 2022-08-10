@@ -18,6 +18,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "name required"],
     },
+    orders: [
+        {
+            type: mongoose.Types.ObjectId
+        }
+    ],
+    location: {
+        type: String,
+    }
 
 });
 

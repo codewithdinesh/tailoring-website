@@ -1,66 +1,112 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "../style/Product-page.css";
 import Faq from "./Faq";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+
 
 const Product = () => {
-  const location = useLocation();
+  // const location = useLocation();
   // const { product} = location.state;
 
-  const productID = useParams();
-  console.log(productID);
+  const productID = useParams().productID;
+  // console.log(productID);
+
+  const [product, setProduct] = useState({});
 
   // Api request for /product/:productID
   // if present then show product
   // else show product not found page
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchProduct();
+  }, [])
 
-  const product = {
-    title: "Jeans",
-    description: "We design customise Ripped Jeans As per your Specification",
-    price: "600",
-    mrp_price: "1000",
-    subtitle: "Ripped Jeans",
-    img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    productID: "10",
-    rating: "4.3",
-    rating_count: "10"
-  };
+  // const product12 = {
+  //   title: "Jeans",
+  //   description: "We design customise Ripped Jeans As per your Specification",
+  //   price: "600",
+  //   mrp_price: "1000",
+  //   subtitle: "Ripped Jeans",
+  //   img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  //   productID: "10",
+  //   rating: "4.3",
+  //   rating_count: "10"
+  // };
+
+  const fetchProduct = async () => {
+
+    let headersList = {
+      "Accept": "*/*"
+    }
+
+    let response = await fetch(`http://localhost:5000/product/${productID}`, {
+      method: "GET",
+      headers: headersList
+    });
+
+    let data = await response.json();
+    setProduct(data)
+
+  }
+
+  const orderNow = async () => {
+
+    // first open the order pop modal
+    // then get the inputs for size and fabric type
+    // the make API request
+
+    let headersList = {
+      "Accept": "*/*",
+      "Content-Type": "application/x-www-form-urlencoded"
+    }
+
+    let bodyContent = "size=S&fabrictype=Jeans";
+
+    let response = await fetch(`http://localhost:5000/product/order/${productID}`, {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList
+    });
+
+    let data = await response.text();
+    console.log(data);
+  }
 
 
   return (
     <div className="container">
       <div
-        class="container mt-2 mb-2"
+        className="container mt-2 mb-2"
         style={{ backgdroundColor: "#fff" }}
         tore
         fetch
       >
-        <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div className="row d-flex justify-content-center align-items-center h-100 ">
 
           <div
-            class="card text-black bg-white product-container p-0 m-0"
+            className="card text-black bg-white product-container p-0 m-0"
             style={{ borderRadius: "15px" }}
           >
-            <div class="card-body">
-              <div class="row justify-content-center ">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
+            <div className="card-body">
+              <div className="row justify-content-center ">
+                <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
                   <div className="img-fluid ">
                     <img
                       src={product.img}
                       className="product-img"
-                      alt="login"
+                      alt="product image"
                     />
                   </div>
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 align-items-center order-2 order-lg-2 ">
-                  <div class="card-body">
+                <div className="col-md-10 col-lg-6 col-xl-7 align-items-center order-2 order-lg-2 ">
+                  <div className="card-body">
 
                     {/* Title container */}
                     <div className="product-title-container">
 
-                      <p class="product-title">{product.title}</p>
-                      <p class="product-subtitle">{product.subtitle}</p>
+                      <p className="product-title">{product.title}</p>
+                      <p className="product-subtitle">{product.subtitle}</p>
                     </div>
 
                     {/* Rating Container */}
@@ -69,7 +115,7 @@ const Product = () => {
                         <span className="rating-count">{product.rating}</span>
                         <img src="/Images/rating_star.png" alt="Rated" className="img rating-img" />
                         <span className="vertical-line divider"></span>
-                        <span className="rating-count">{product.rating_count}</span>
+                        <span className="rating-count">{product.ratingCount}</span>
                         <span className="rating-count">Ratings</span>
                       </div>
                     </div>
@@ -80,13 +126,13 @@ const Product = () => {
                     {/* Price Container */}
                     <div className="product-price-container">
 
-                      <span class="product-price">
+                      <span className="product-price">
                         &#8377;{product.price}
                       </span>
 
                       <span className="product-mrp">
                         <del>
-                          MRP &#8377;{product.mrp_price}
+                          MRP &#8377;{product.mrp}
                         </del>
                       </span>
 
@@ -95,11 +141,11 @@ const Product = () => {
                     </div>
 
                     {/* Product Buy Button */}
-                    <div class="d-flex align-items-center product-cart-button-actions">
-                      <button class="product-card-button px-3 text-center h3">
+                    <div className="d-flex align-items-center product-cart-button-actions">
+                      <button className="product-card-button px-3 text-center h3">
                         cart
                         <svg
-                          class="svg-icon"
+                          className="svg-icon"
                           viewBox="0 0 20 20"
                           width="45"
                           height="45">
@@ -111,9 +157,10 @@ const Product = () => {
 
                       <button
                         type="button"
-                        class="btn btn-primary mx-md-5 buy-now"
-                      >
+                        className="btn btn-primary mx-md-5 buy-now"
+                        onClick={orderNow}>
                         Buy now
+
                       </button>
                     </div>
 

@@ -14,6 +14,7 @@ import Editprofile from "./components/pages/Editprofile";
 import Profile from "./components/pages/Profile";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Product from "./components/pages/Product";
+import PageNotFOund from "./components/pages/PageNotFOund";
 function App() {
   return (
     <div className="App">
@@ -29,7 +30,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/product/:productID" element={<Product />} />
           <Route path="/profile/edit" element={<Editprofile />} />
-          <Route path="/Cart" element={<Cart/>} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="*" element={<PageNotFOund />} />
+
 
         </Routes>
 

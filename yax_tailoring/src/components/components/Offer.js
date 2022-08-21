@@ -5,7 +5,7 @@ const Offer = ({ title, btn }) => {
     return (
         <div className='Offer' >
 
-            <div class="title">
+            <div className="title">
                 <p >{title} </p>
                 <button> {btn}</button>
             </div>

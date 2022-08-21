@@ -21,45 +21,49 @@ const Header = () => {
     }
 
     return (
-        <header class="header">
-            <nav class="navbar">
+        <header className="header">
+            <nav className="navbar">
 
                 {/* Mobile */}
-                <div class={`hamburger ${close}`} onClick={OpenNav}>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                <div className={`hamburger ${close}`} onClick={OpenNav}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
                 </div>
 
-                <div class="logo-container">
+                <div className="logo-container">
                     <Link to='/' style={{ textDecoration: "none" }}>
                         YAX<span> Tailors</span>
                     </Link>
                 </div>
 
-                <ul class={`nav-items  ${state}`}>
-                    <li className="nav-item">
-                        <Link to="/signup"> Signup  </Link >
+                <ul className={`nav-items  ${state}`}>
+                    <Link to="/signup">
+                        <li className="nav-item" onClick={OpenNav}>
+                            Signup
 
-                    </li>
+                        </li>
+                    </Link >
 
-                    <li className="nav-item" >
-                        <Link to="/Profile" >
-                            Your Account
-                        </Link>
-                    </li>
+                    <Link to="/Profile" >
+                        <li className="nav-item" onClick={OpenNav} >
+                            Account
 
-                    <li className="nav-item cart">
+                        </li>
+                    </Link>
 
-                        <Link to="/cart">
+                    <Link to="/cart">
+                        <li className="nav-item cart" onClick={OpenNav}>
+
                             Cart
-                        </Link>
-                    </li>
-                    <li className="nav-item login">
-                        <Link to="/login" className='login' >
+                        </li>
+                    </Link>
+
+                    <Link to="/login" className='login' >
+                        <li className="nav-item login" onClick={OpenNav}>
                             Login
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
 
                 </ul>
 

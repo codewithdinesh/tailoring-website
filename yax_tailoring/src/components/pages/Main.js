@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../components/Product";
 import Offer from "../components/Offer";
 import Overview from "../components/Overview";
@@ -31,22 +31,52 @@ const products = [
   },
 ];
 
+
+
+
 export const Main = () => {
+
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
+
+  // API request for fetching products from DB
+  const fetchProduct = async () => {
+    let headersList = {
+      "Accept": "*/*",
+  
+    }
+
+    let response = await fetch("http://localhost:5000/products", {
+      method: "GET",
+      headers: headersList
+    });
+
+    let data = await response.json();
+    console.log(data);
+    setProduct(data);
+  }
+
   return (
     <>
       {/* <Offer title={"Buy 4 or more tailored items get 20% off"} btn={"Grab it!"} /> */}
       <Offer title={"Buy 2 e tailored items get 10% off"} btn={"Grab it!"} />
       <Overview />
-      <div class="container-max">
-        <h3 class="services">Services We Offer</h3>
+      <div className="container-max">
+        <h3 className="services">Services We Offer</h3>
+
 
         {/* Services */}
         <div className="p-2 d-flex flex-sm-row flex-column justify-content-center flex-wrap">
-          {products.map((item) => {
+          {product.map((item) => {
             return <Product product={item} />;
           })}
         </div>
 
+        {/* How it works */}
         <h3>How it Works</h3>
 
         <div className="how-its-works container">

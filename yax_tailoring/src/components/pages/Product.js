@@ -166,7 +166,6 @@ const Product = () => {
 
 
                     {/* Product description */}
-
                     <div className="product-description">
                       <h6 className="description-title">Description</h6>
                       <p className="description">

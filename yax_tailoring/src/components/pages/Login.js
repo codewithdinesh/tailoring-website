@@ -1,6 +1,7 @@
-import React, { useEffect, useState, Component } from 'react'
+import React, { Component } from 'react'
+import Cookies from "universal-cookie";
 
-
+const cookies = new Cookies();
 
 export default class Login extends Component {
 
@@ -9,9 +10,13 @@ export default class Login extends Component {
 
     this.state = {
       email: props.email,
-      password: props.password
-
+      password: props.password,
+      show: false
     }
+
+    // modal
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   // handle email input
@@ -24,12 +29,13 @@ export default class Login extends Component {
     this.state.password = event.target.value;
   }
 
+
   // Onclick event on LOGIN button
   onLogin = () => {
 
     let email = this.state.email;
     let password = this.state.password;
-    
+
     // validate input before requesting
 
     this.LoginRequest(email, password);
@@ -38,11 +44,12 @@ export default class Login extends Component {
 
   // Login API request
   LoginRequest = (email, password) => {
+
     let headersList = {
       'accept': 'application/json',
       "Content-Type": "application/x-www-form-urlencoded"
     }
-    
+
     let bodyContent = `email=${email}&pass=${password}`;
 
     fetch("http://localhost:5000/login", {
@@ -50,10 +57,36 @@ export default class Login extends Component {
       body: bodyContent,
       headers: headersList
     })
-      .then(response => response.json())
-      .then(data => console.log(data));
+      .then((response) =>
+        response.json()
+      )
+      .then(data => {
 
-    // store data into cokkie
+        alert(data.message)
+
+        // console.log(data.message)
+
+        if (data.status == 200) {
+          // If request status is 200 ok then
+
+          // store data into cokkie
+          try {
+
+            cookies.set("token_id", data.token);
+            cookies.set("user_id", data.userId);
+
+
+            // console.log(data);
+
+          } catch (err) {
+
+            console.log("Something went wrong..");
+
+          }
+        }
+
+      });
+
   }
 
 
@@ -116,6 +149,7 @@ export default class Login extends Component {
           </div>
 
         </div>
+
 
       </div>
     )

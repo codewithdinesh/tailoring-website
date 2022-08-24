@@ -2,21 +2,20 @@ const User = require("../Models/user");
 const validateEmail = require("../utility/emailValidate");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const Login = async (req, res, next) => {
     var email = req.body.email;
     var pass = req.body.pass;
 
-    /* Check email enterred or not */
+    /* Check email entered or not */
     if (!email) {
-        return res.status(400).send(JSON.stringify({ "message": "Email is Required", "status": 400 }));
+
+        return res.status(404).send({ "message": "Email is Required", "status": 400 });
 
     }
 
     /* Check password is enterred or not */
     if (!pass) {
-        return res.status(400).send(JSON.stringify({ "message": "Password is Required", "status": 400 }));
-
+        return res.status(404).send({ "message": "Password is Required", "status": 404 });
     }
 
     if (validateEmail(email)) {
@@ -67,12 +66,12 @@ const Login = async (req, res, next) => {
                 res.cookie('token_id', token, options);
 
                 // return the response
-                res.status(200).send({ "token": token, "email": email, "userId": user._id });
+                res.status(200).send({ "message": "Login Successful", "token": token, "email": email, "userId": user._id, status: 200 });
 
             })
         });
     } else {
-        return res.send({ "message": "Invalid Email" });
+        return res.status(400).send({ "message": "Invalid Email" });
     }
 
 }

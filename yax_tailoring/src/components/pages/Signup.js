@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Navigate } from 'react-router-dom'
 import "../style/login.css"
 import Cookies from "universal-cookie";
 
@@ -14,7 +15,10 @@ export default class Signup extends Component {
       email: props.email,
       password: props.password,
       name: props.name,
-      retype: props.retype
+      retype: props.retype,
+      redirect: false
+
+      // agree: props.agree
     }
   }
 
@@ -45,6 +49,8 @@ export default class Signup extends Component {
     this.state.name = event.target.value;
 
   }
+
+  // agreement agree
 
 
   onSignUp() {
@@ -80,7 +86,9 @@ export default class Signup extends Component {
 
     else if (password === retypepassword) {
       this.SignUp(email, password, name, retypepassword);
-    } else {
+    }
+
+    else {
       alert("Password Does not match")
     }
 
@@ -105,26 +113,38 @@ export default class Signup extends Component {
 
     let data = await response.json();
     console.log(data);
+    alert(data.message);
 
     if (response.ok) {
 
       const cookieOption = {
         path: "/",
-        httpOnly: true,
         encode: true,
-        sameSite: true
+        sameSite: true,
+
       }
       cookies.set("token_id", data.token, cookieOption);
       cookies.set("user_id", data.userId, cookieOption);
+      this.setState({ redirect: true })
+
+      // return <Redirect to='/login'  />
+      // this.props.history.push('/path')
     }
 
-    alert(data.message);
 
   }
 
 
   render() {
 
+    const { redirect } = this.state;
+
+    console.log(redirect)
+
+    if (redirect) {
+
+      return <Navigate to="/" />
+    }
     return (
       <div className="container mt-2 mb-2" style={{ backgroundColor: "#fff" }}>
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -164,12 +184,13 @@ export default class Signup extends Component {
                         </div>
                       </div>
 
-                      <div className="form-check d-flex justify-content-center mb-5">
-                        <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                      {/* <div className="form-check d-flex justify-content-center mb-5">
+                        <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" checked={this.setState({ agree: true })} />
+
                         <label className="form-check-label" for="form2Example3">
-                          I agree all statements in <a href="#!">Terms of service</a>
+                          I agree all statements in <a href="#">Terms of service</a>
                         </label>
-                      </div>
+                      </div> */}
 
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
 

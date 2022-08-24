@@ -13,6 +13,7 @@ import { Main } from "./components/pages/Main";
 import Editprofile from "./components/pages/Editprofile";
 import Profile from "./components/pages/Profile";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import Product from "./components/pages/Product";
 import PageNotFOund from "./components/pages/PageNotFOund";
 function App() {
@@ -32,7 +33,7 @@ function App() {
           <Route path="/profile/edit" element={<Editprofile />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="*" element={<PageNotFOund />} />
-
+    
 
         </Routes>
 

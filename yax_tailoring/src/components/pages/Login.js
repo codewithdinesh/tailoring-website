@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Cookies from "universal-cookie";
+import { Navigate, } from "react-router-dom"
+
 
 const cookies = new Cookies();
 
 export default class Login extends Component {
+
 
   constructor(props) {
     super(props);
@@ -11,18 +14,21 @@ export default class Login extends Component {
     this.state = {
       email: props.email,
       password: props.password,
-      show: false
+      show: false,
+      redirect: false
     }
+    // const history  = this.props;
 
     // modal
-    this.showModal = this.showModal.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    // this.showModal = this.showModal.bind(this);
+    // this.hideModal = this.hideModal.bind(this);
   }
 
   // handle email input
   handleEmail = (event) => {
     this.state.email = event.target.value;
   }
+
 
   // handle password input
   handlePassword = (event) => {
@@ -37,7 +43,6 @@ export default class Login extends Component {
     let password = this.state.password;
 
     // validate input before requesting
-
     this.LoginRequest(email, password);
   }
 
@@ -66,24 +71,33 @@ export default class Login extends Component {
 
         // console.log(data.message)
 
-        if (data.status == 200) {
-          // If request status is 200 ok then
 
-          // store data into cokkie
+        if (data.status == 200) {
+          // If request status is 200 ok then redirect
+
+
+          const cookieOption = {
+            path: "/",
+            // httpOnly: true,
+            sameSite:true
+          }
+
+          // store data into cookie
           try {
 
-            cookies.set("token_id", data.token);
-            cookies.set("user_id", data.userId);
-
-
-            // console.log(data);
+            cookies.set("token_id", data.token,cookieOption);
+            cookies.set("user_id", data.userId,cookieOption);
+            console.log("cookie saved")
+            this.setState({ redirect: true })
 
           } catch (err) {
 
             console.log("Something went wrong..");
 
           }
+
         }
+
 
       });
 
@@ -91,8 +105,21 @@ export default class Login extends Component {
 
 
   render() {
+
+    const { redirect } = this.state;
+
+    console.log(redirect)
+
+    if (redirect) {
+
+      return <Navigate to="/" />
+    }
     return (
+
+
       <div className="container mt-2 mb-2" style={{ backgroundColor: "#fff" }}>
+
+
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-lg-12 col-xl-11">
             <div className="card text-black bg-white" style={{ borderRadius: "25px" }}>

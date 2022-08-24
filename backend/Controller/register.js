@@ -107,7 +107,7 @@ const register = async (req, res) => {
                         }
 
                         res.cookie('token_id', token, options);
-                        return res.status(200).send({ "message": "account created successfully", "status": 200, "login_token": token, "email": email });
+                        return res.status(200).send({ "message": "account created successfully", "status": 200, "token": token, "email": email, "userId": newUser._id });
 
                     });
 

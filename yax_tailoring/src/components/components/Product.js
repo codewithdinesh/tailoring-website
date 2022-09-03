@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/Product.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const product = ({ product }) => {
   return (

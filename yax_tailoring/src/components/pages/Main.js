@@ -5,38 +5,14 @@ import Overview from "../components/Overview";
 import "../style/Main.css";
 import Footer from "../components/Footer";
 
-const products = [
-  {
-    title: "Jeans",
-    description: "We design customise Ripped Jeans As per your Specification",
-    price: "600",
-    mrp_price: "1000",
-    subtitle: "Ripped Jeans",
-    img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    productID: "10",
-    rating: "4.3",
-    rating_count: "10"
-  },
-
-  {
-    title: "Jeans",
-    description: "We design customise Ripped Jeans As per your Specification",
-    price: "600",
-    mrp_price: "1000",
-    subtitle: "Ripped Jeans",
-    img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    productID: "10",
-    rating: "4.3",
-    rating_count: "10"
-  },
-];
-
-
-
 
 export const Main = () => {
 
   const [product, setProduct] = useState([]);
+
+  const [isLoading, setLoading] = useState(false);
+
+  const [isError, setError] = useState(false);
 
   useEffect(() => {
     fetchProduct();
@@ -45,35 +21,79 @@ export const Main = () => {
 
   // API request for fetching products from DB
   const fetchProduct = async () => {
-    let headersList = {
-      "Accept": "*/*",
-  
+    setLoading(true);
+    setError(false)
+
+    try {
+
+      let headersList = {
+        "Accept": "*/*",
+
+      }
+
+      let response = await fetch("http://localhost:5000/products", {
+        method: "GET",
+        headers: headersList
+      });
+
+      let data = await response.json();
+
+      setLoading(false)
+
+      // console.log(data);
+      setProduct(data);
+
+    } catch (Err) {
+      console.log("Something went wrong..");
+      setLoading(false)
+      setError(true)
     }
-
-    let response = await fetch("http://localhost:5000/products", {
-      method: "GET",
-      headers: headersList
-    });
-
-    let data = await response.json();
-    console.log(data);
-    setProduct(data);
   }
 
   return (
     <>
       {/* <Offer title={"Buy 4 or more tailored items get 20% off"} btn={"Grab it!"} /> */}
       <Offer title={"Buy 2 e tailored items get 10% off"} btn={"Grab it!"} />
+
       <Overview />
+
       <div className="container-max">
         <h3 className="services">Services We Offer</h3>
+
+        {/* Loading effect */}
+        {
+          isError === true ? <div className="container">
+            <div className="card bg-white p-2 m-2">
+
+              <div class="alert alert-warning" role="alert">
+                Something Went Wrong
+              </div>
+              <div className="try-again">
+
+                <button className="reload p-2 btn  btn-primary" onClick={fetchProduct}>Reload</button>
+              </div>
+
+            </div>
+          </div> : null
+        }
+
+        {/* If Error while fetching  */}
+        {
+          isLoading === true ? <div className="d-flex justify-content-center mb-2 mt-0">
+            <div className="spinner-border text-danger" role="status">
+              <span className="sr-only"></span>
+            </div>
+          </div> : null
+        }
 
 
         {/* Services */}
         <div className="p-2 d-flex flex-sm-row flex-column justify-content-center flex-wrap">
-          {product.map((item) => {
-            return <Product product={item} />;
-          })}
+          {
+            product.map((item, n) => {
+              return <Product product={item} key={n} />;
+            })
+          }
         </div>
 
         {/* How it works */}

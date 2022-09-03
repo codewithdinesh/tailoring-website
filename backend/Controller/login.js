@@ -2,6 +2,7 @@ const User = require("../Models/user");
 const validateEmail = require("../utility/emailValidate");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
 const Login = async (req, res, next) => {
     var email = req.body.email;
     var pass = req.body.pass;
@@ -58,7 +59,7 @@ const Login = async (req, res, next) => {
                 let options = {
                     path: "/",
                     sameSite: true,
-                    maxAge: 1000 * 60 * 60 * 24 * 30, // would expire after 24 hours
+                    maxAge:  60 * 60 * 24 * 30, // would expire after 30 days
                     httpOnly: true,
                 }
 

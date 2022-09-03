@@ -153,7 +153,7 @@ export default function Cart() {
                         <div className="mb-5">
                           <div className="form-outline">
                             <input type="text" id="form3Examplea2" className="form-control form-control-lg" />
-                            <label className="form-label" for="form3Examplea2">Enter your code</label>
+                            <label className="form-label" htmlFor="form3Examplea2">Enter your code</label>
                           </div>
                         </div>
 

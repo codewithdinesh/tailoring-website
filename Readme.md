@@ -2,7 +2,8 @@
 ### Online Tailoring Services - Let Us Create Your Style
 This Website is created with React and NOdejs.
 
-## Available Scripts \
+
+## Available Scripts 
 
 In the project directory '/backend', you can run:
 ### `npm start`

@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../Models/user");
 
 const Auth = (req, res, next) => {
-
-    const token = req.headers.token_id || req.cookies.token_id;
+ 
+const token = req.headers.token_id || req.cookies.token_id;
 
     if (!token) {
         return res.status(401).send({
@@ -37,8 +37,10 @@ const Auth = (req, res, next) => {
                     req.user = decoded.user_id;
                     req.location = result.location;
 
+                    
                     return next();
-
+                    
+                  
                 }
 
 

@@ -24,9 +24,9 @@ const Footer = () => {
 
                                 <div className="mapouter">
                                     <div className="gmap_canvas">
-                                        <iframe width="450" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=%2016.990894323986005,%2073.28742859224732&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                                        </iframe><Link to="https://fmovies-online.net">
-                                        </Link><br /><Link to="https://www.embedgooglemap.net"></Link>
+                                        <iframe width="450" height="150" id="gmap_canvas" src="https://maps.google.com/maps?q=%2016.990894323986005,%2073.28742859224732&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
+                                        </iframe>
                                     </div>
                                 </div>
 

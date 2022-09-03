@@ -1,38 +1,38 @@
 import React, { Component } from 'react'
 import Cookies from "universal-cookie";
-import { Navigate, } from "react-router-dom"
+import { Navigate } from "react-router-dom"
+import Auth from "../Auth"
+import LoginError from './LoginMessage';
 
 
-const cookies = new Cookies();
 
 export default class Login extends Component {
 
+  cookies = new Cookies();
 
   constructor(props) {
     super(props);
 
     this.state = {
-      email: props.email,
-      password: props.password,
+      email: '',
+      password: '',
       show: false,
-      redirect: false
+      redirect: false,
+      isLoading: false
     }
-    // const history  = this.props;
 
-    // modal
-    // this.showModal = this.showModal.bind(this);
-    // this.hideModal = this.hideModal.bind(this);
   }
 
   // handle email input
   handleEmail = (event) => {
-    this.state.email = event.target.value;
+    this.setState({ email: event.target.value })
   }
 
 
   // handle password input
   handlePassword = (event) => {
-    this.state.password = event.target.value;
+    this.setState({ password: event.target.value })
+
   }
 
 
@@ -42,8 +42,27 @@ export default class Login extends Component {
     let email = this.state.email;
     let password = this.state.password;
 
-    // validate input before requesting
-    this.LoginRequest(email, password);
+    /* Check email enterred or not */
+    if (!email) {
+      alert("Please Input Email!")
+    }
+
+    /* Check password is enterred or not */
+    else if (!password) {
+
+      alert("Please Input Password!")
+
+    } else {
+
+      this.setState({ isLoading: true })
+
+      console.log(this.state.isLoading)
+      // validate input before requesting
+      this.LoginRequest(email, password);
+
+    }
+
+
   }
 
 
@@ -52,7 +71,9 @@ export default class Login extends Component {
 
     let headersList = {
       'accept': 'application/json',
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Access-Control-Allow-Origin": "*"
+
     }
 
     let bodyContent = `email=${email}&pass=${password}`;
@@ -66,59 +87,59 @@ export default class Login extends Component {
         response.json()
       )
       .then(data => {
+        this.setState({ isLoading: false })
+
 
         alert(data.message)
 
         // console.log(data.message)
-
-
-        if (data.status == 200) {
+        if (data.status === 200) {
           // If request status is 200 ok then redirect
-
-
-          const cookieOption = {
-            path: "/",
-            // httpOnly: true,
-            sameSite:true
-          }
 
           // store data into cookie
           try {
+            const cookieOption = {
+              path: "/",
+              sameSite: true,
+              secure: true,
+              maxAge: 60 * 60 * 24 * 30
+              // httpOnly: true,
+            }
 
-            cookies.set("token_id", data.token,cookieOption);
-            cookies.set("user_id", data.userId,cookieOption);
-            console.log("cookie saved")
-            this.setState({ redirect: true })
+            this.cookies.set("token_id", data.token, cookieOption);
+            this.cookies.set("user_id", data.userId, cookieOption);
+            this.setState({ redirect: true });
+
+            // redirect to home page
+            window.location.href = "/";
 
           } catch (err) {
 
-            console.log("Something went wrong..");
+            console.log("Something went wrong..", err);
+
+            alert("Something Went Wrong,Try again...")
 
           }
 
         }
 
 
-      });
+      }).catch(err => {
 
+        this.setState({ isLoading: false })
+
+        if (err) {
+          alert("Something Goes went wrong, Please try again later", err)
+        }
+      });
   }
 
 
   render() {
 
-    const { redirect } = this.state;
-
-    console.log(redirect)
-
-    if (redirect) {
-
-      return <Navigate to="/" />
-    }
     return (
 
-
       <div className="container mt-2 mb-2" style={{ backgroundColor: "#fff" }}>
-
 
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-lg-12 col-xl-11">
@@ -136,18 +157,31 @@ export default class Login extends Component {
 
                     <form className="mx-1 mx-md-4">
 
+                      {/* email section */}
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
-                          <input type="email" id="form3Example3c" className="form-control" placeholder='Your Email' value={this.state.email} onChange={this.handleEmail.bind(this)} />
+                          <input type="email" id="form3Example3c" className="form-control" placeholder='Your Email' defaultValue={this.state.email} onChange={this.handleEmail.bind(this)} />
                         </div>
                       </div>
 
+                      {/* password Section */}
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
                           <input type="password" id="form3Example4c" className="form-control" placeholder='Password' value={this.state.password} onChange={this.handlePassword.bind(this)} />
                         </div>
                       </div>
 
+                      {/* Loading */}
+                      {
+                        this.state.isLoading === true ? <div className="d-flex justify-content-center mb-2 mt-0">
+                          <div className="spinner-border text-danger" role="status">
+                            <span className="sr-only"></span>
+                          </div>
+                        </div> : null
+                      }
+
+
+                      {/* Login Click Button */}
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button type="button" className="btn btn-primary btn-lg" onClick={this.onLogin.bind(this)}>
                           Login
@@ -158,6 +192,7 @@ export default class Login extends Component {
 
                   </div>
 
+                  {/* Login feature image */}
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                     <div className='img-fluid '>
 
@@ -176,7 +211,6 @@ export default class Login extends Component {
           </div>
 
         </div>
-
 
       </div>
     )

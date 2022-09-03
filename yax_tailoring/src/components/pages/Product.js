@@ -1,16 +1,19 @@
 import { React, useEffect, useState } from "react";
 import "../style/Product-page.css";
 import Faq from "./Faq";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Modal from "../components/Modal";
 
 
 const Product = () => {
-  // const location = useLocation();
-  // const { product} = location.state;
 
+  // This is for opening popup when ordering
+  const [modalState, setModalState] = useState(false);
+
+  // This is product id which we can use to fetch from api
   const productID = useParams().productID;
-  // console.log(productID);
 
+  // to save Product details response 
   const [product, setProduct] = useState({});
 
   // Api request for /product/:productID
@@ -18,22 +21,17 @@ const Product = () => {
   // else show product not found page
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     fetchProduct();
   }, [])
 
-  // const product12 = {
-  //   title: "Jeans",
-  //   description: "We design customise Ripped Jeans As per your Specification",
-  //   price: "600",
-  //   mrp_price: "1000",
-  //   subtitle: "Ripped Jeans",
-  //   img: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbiUyMGplYW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //   productID: "10",
-  //   rating: "4.3",
-  //   rating_count: "10"
-  // };
 
+  // For modal state handle
+  const handalModal = () => {
+    setModalState(!modalState);
+  }
+
+
+  // Fetch product details
   const fetchProduct = async () => {
 
     let headersList = {
@@ -50,6 +48,18 @@ const Product = () => {
 
   }
 
+
+  // on click event on  order now
+  const onOrderNowEvent = () => {
+
+    // check login before pop up
+    setModalState(true);
+    orderNow();
+
+  }
+
+
+  // API request for /Order
   const orderNow = async () => {
 
     // first open the order pop modal
@@ -142,7 +152,7 @@ const Product = () => {
 
                     {/* Product Buy Button */}
                     <div className="d-flex align-items-center product-cart-button-actions">
-                      <button className="product-card-button px-3 text-center h3">
+                      <button className="product-card-button px-3 text-center h3" >
                         cart
                         <svg
                           className="svg-icon"
@@ -158,10 +168,12 @@ const Product = () => {
                       <button
                         type="button"
                         className="btn btn-primary mx-md-5 buy-now"
-                        onClick={orderNow}>
+                        onClick={onOrderNowEvent}>
                         Buy now
 
                       </button>
+
+
                     </div>
 
 
@@ -184,6 +196,8 @@ const Product = () => {
                       </ul>
                     </div>
 
+                    {/* POP up */}
+                    <Modal isOpen={modalState} toggle={handalModal} />
                   </div>
 
                 </div>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../style/Header.css"
-import {
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const AuthValidate = require("../../Auth/AuthValidate");
 
 const Header = () => {
 
@@ -10,6 +10,20 @@ const Header = () => {
     const [close, setClose] = useState("none");
 
 
+    // check logged or not
+    const [authstate, setAuthState] = useState("");
+
+    useEffect(() => {
+        AuthValidate.default.onAuth().then(value => {
+            console.log(value)
+
+            setAuthState(value);
+
+        });
+    }, [])
+
+
+    // for open and close navbar
     const OpenNav = () => {
         if (state === "none") {
             setSate("active")
@@ -19,6 +33,7 @@ const Header = () => {
             setClose("none")
         }
     }
+
 
     return (
         <header className="header">
@@ -38,32 +53,75 @@ const Header = () => {
                 </div>
 
                 <ul className={`nav-items  ${state}`}>
-                    <Link to="/signup">
-                        <li className="nav-item" onClick={OpenNav}>
-                            Signup
 
-                        </li>
-                    </Link >
 
-                    <Link to="/Profile" >
-                        <li className="nav-item" onClick={OpenNav} >
-                            Account
+                    {/* signup button */}
 
-                        </li>
-                    </Link>
+                    {
+                        authstate !== "logged" ?
 
-                    <Link to="/cart">
-                        <li className="nav-item cart" onClick={OpenNav}>
+                            <Link to="/signup" onClick={OpenNav}>
 
+                                <li className="nav-item" >
+                                    Signup
+                                </li>
+
+                            </Link >
+
+                            : null
+                    }
+
+
+                    {/* Profile Section */}
+
+                    {
+                        authstate === "logged" ?
+
+                            <Link to="/Profile" onClick={OpenNav} >
+                                <li className="nav-item"  >
+                                    Account
+
+                                </li>
+                            </Link>
+
+                            : null
+                    }
+
+
+
+                    <Link to="/cart" onClick={OpenNav}>
+                        <li className="nav-item cart" >
                             Cart
                         </li>
                     </Link>
 
-                    <Link to="/login" className='login' >
-                        <li className="nav-item login" onClick={OpenNav}>
-                            Login
-                        </li>
-                    </Link>
+
+                    {/* Login Section */}
+
+                    {
+                        authstate === "notLogged" ?
+
+                            <Link to="/login" className='login' onClick={OpenNav} >
+                                <li className="nav-item login" >
+                                    Login
+                                </li>
+                            </Link>
+                            :
+                            authstate === "logged" ?
+                                <Link to="/logout" className='login' onClick={OpenNav} >
+                                    <li className="nav-item login" >
+                                        LogOut
+                                    </li>
+                                </Link>
+                                :
+                                authstate === "error" ?
+
+                                    <Link to="/logout" className='login' onClick={OpenNav} >
+                                        <li className="nav-item login" >
+                                            Error
+                                        </li>
+                                    </Link> : null
+                    }
 
                 </ul>
 

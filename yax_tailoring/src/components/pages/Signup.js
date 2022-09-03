@@ -12,47 +12,56 @@ export default class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: props.email,
-      password: props.password,
-      name: props.name,
-      retype: props.retype,
-      redirect: false
-
-      // agree: props.agree
+      email: '',
+      password: '',
+      name: '',
+      retype: '',
+      redirect: false,
+      agree: false,
+      isLoading: false
     }
   }
 
   // handle email input
   handleEmail = (event) => {
 
-    this.state.email = event.target.value;
+    this.setState({ email: event.target.value })
 
   }
 
   // handle password input
   handlePassword = (event) => {
-
-    this.state.password = event.target.value;
-
+    this.setState({ password: event.target.value })
   }
 
   // handle retype
   handleRetypePass = (event) => {
 
-    this.state.retype = event.target.value;
+    this.setState({ retype: event.target.value })
 
   }
 
   // handle name input
   handleName = (event) => {
 
-    this.state.name = event.target.value;
+    this.setState({ name: event.target.value })
 
   }
 
   // agreement agree
+  handleAgreement = () => {
+    if (this.state.agree === false) {
 
+      this.setState({ agree: true })
 
+    } else {
+
+      this.setState({ agree: false })
+
+    }
+  }
+
+  // On signup click event
   onSignUp() {
     let email = this.state.email;
     let password = this.state.password;
@@ -77,64 +86,97 @@ export default class Signup extends Component {
 
     }
 
-
     /* check name */
     else if (!name) {
       alert("Please Enter your Name")
-
     }
 
-    else if (password === retypepassword) {
-      this.SignUp(email, password, name, retypepassword);
-    }
-
-    else {
+    /* Check both password is same or not */
+    else if (password !== retypepassword) {
       alert("Password Does not match")
     }
 
+    else if (this.state.agree === false) {
+      alert("Please Agree our Terms and Condition to use our Platform")
+    }
+
+    // If all are input are present then make API request
+    else {
+      this.setState(
+        { isLoading: true }
+      )
+      this.SignUp(email, password, name, retypepassword);
+    }
+
+
   }
 
 
-
+  // Signup API request
   SignUp = async (email, pass, name, retype) => {
+
+    // passing Headers
     let headersList = {
       "Accept": "*/*",
-      "User-Agent": "Thunder Client (https://www.thunderclient.com)",
       "Content-Type": "application/x-www-form-urlencoded"
     }
 
+    // body to request
     let bodyContent = `name=${name}&email=${email}&pass=${pass}&retype_pass=${retype}`;
 
-    let response = await fetch("http://localhost:5000/register", {
-      method: "POST",
-      body: bodyContent,
-      headers: headersList
-    });
+    try {
 
-    let data = await response.json();
-    console.log(data);
-    alert(data.message);
 
-    if (response.ok) {
+      // making request
+      let response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
+      });
 
-      const cookieOption = {
-        path: "/",
-        encode: true,
-        sameSite: true,
+      // getting and parsing response
+      let data = await response.json();
+      console.log(data);
+
+      this.setState(
+        { isLoading: false }
+      )
+
+      alert(data.message);
+
+      // If success Request 
+      if (response.ok) {
+
+        const cookieOption = {
+          path: "/",
+          sameSite: true,
+          expire: Date.now() + 60 * 60 * 24 * 30,
+          secure: true,
+          // httpOnly: true, // Not Working
+
+        }
+
+
+
+        // store user id and login token for auth
+        cookies.set("token_id", data.token, cookieOption);
+        cookies.set("user_id", data.userId, cookieOption);
+        this.setState({ redirect: true })
 
       }
-      cookies.set("token_id", data.token, cookieOption);
-      cookies.set("user_id", data.userId, cookieOption);
-      this.setState({ redirect: true })
+    } catch (err) {
 
-      // return <Redirect to='/login'  />
-      // this.props.history.push('/path')
+      this.setState(
+        { isLoading: false }
+      )
+
+      alert("Something goes went wrong, Please try again Later")
+
     }
-
 
   }
 
-
+  // Render 
   render() {
 
     const { redirect } = this.state;
@@ -160,38 +202,53 @@ export default class Signup extends Component {
 
                       <div className="d-flex flex-row align-items-center mb-4">
 
+                        {/* Input name */}
                         <div className="form-outline flex-fill mb-0">
                           <input type="text" id="form3Example1c" placeholder='Your name' className="form-control" onChange={this.handleName.bind(this)} />
 
                         </div>
                       </div>
 
+                      {/* Input Email */}
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
                           <input type="email" id="form3Example3c" className="form-control" placeholder='Your Email' onChange={this.handleEmail.bind(this)} />
                         </div>
                       </div>
 
+                      {/* Input Password */}
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
                           <input type="password" id="form3Example4c" className="form-control" placeholder='Password' onChange={this.handlePassword.bind(this)} />
                         </div>
                       </div>
 
+                      {/* Input Retype Password */}
                       <div className="d-flex flex-row align-items-center mb-4">
                         <div className="form-outline flex-fill mb-0">
                           <input type="password" id="form3Example4cd" className="form-control" placeholder='Repeat your password' onChange={this.handleRetypePass.bind(this)} />
                         </div>
                       </div>
 
-                      {/* <div className="form-check d-flex justify-content-center mb-5">
-                        <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" checked={this.setState({ agree: true })} />
+                      {/* Input checkbox for agreement Licence */}
+                      <div className="form-check d-flex justify-content-center mb-5">
+                        <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" onChange={this.handleAgreement.bind(this)} />
 
-                        <label className="form-check-label" for="form2Example3">
+                        <label className="form-check-label" htmlFor="form2Example3">
                           I agree all statements in <a href="#">Terms of service</a>
                         </label>
-                      </div> */}
+                      </div>
 
+                      {/* Loading */}
+                      {
+                        this.state.isLoading === true ? <div className="d-flex justify-content-center mb-2 mt-0">
+                          <div className="spinner-border text-danger" role="status">
+                            <span className="sr-only"></span>
+                          </div>
+                        </div> : null
+                      }
+
+                      {/* Signup button */}
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
 
                         <button type="button" className="btn btn-primary btn-lg" style={{ backgroundColor: "#6c63ff", border: "none" }} onClick={this.onSignUp.bind(this)} >Signup</button>
@@ -201,16 +258,21 @@ export default class Signup extends Component {
                     </form>
 
                   </div>
+
+                  {/* Signup Image  */}
                   <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 ">
                     <div className='img-fluid '>
-                      <img src="./Images/singup.svg" className='login-img' alt='singup' />
+
+                      <img src="./Images/singup.svg" className='signup-img' alt='singup' />
 
                     </div>
-
-
                   </div>
+
                 </div>
+
               </div>
+
+
             </div>
           </div>
         </div>

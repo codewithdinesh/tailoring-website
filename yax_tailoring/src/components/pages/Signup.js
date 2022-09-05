@@ -156,12 +156,12 @@ export default class Signup extends Component {
 
         }
 
-
-
         // store user id and login token for auth
         cookies.set("token_id", data.token, cookieOption);
         cookies.set("user_id", data.userId, cookieOption);
-        this.setState({ redirect: true })
+
+        // hard redirect to home page
+        window.location.href = "/";
 
       }
     } catch (err) {

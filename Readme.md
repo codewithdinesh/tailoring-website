@@ -2,6 +2,8 @@
 ### Online Tailoring Services - Let Us Create Your Style
 This Website is created with React and NOdejs.
 
+## Git Clone
+## Create .evn file in "backend" folder with fields : `SECRET_KEY="SECRET key for jwt" , PORT="server port no.", DB_URL_Local="DB url"`
 
 ## Available Scripts 
 

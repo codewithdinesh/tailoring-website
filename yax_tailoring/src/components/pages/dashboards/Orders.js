@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
 import { Order } from '../../components/Order';
 
-
 const cookies = new Cookies()
 
 export const Orders = () => {
@@ -48,10 +47,16 @@ export const Orders = () => {
     <div className='container mt-1 mb-2'>
 
       {
-        ordersList.map((item, index) => {
+        ordersList.length !== 0 ?
+          ordersList.map((item, index) => {
 
-          return <Order orderId={item} key={index} />
-        })
+            return <Order orderId={item} key={index} />
+
+          }) :
+
+          <div className="alert mt-1 mb-1">
+            No Orders Placed
+          </div>
       }
 
     </div>

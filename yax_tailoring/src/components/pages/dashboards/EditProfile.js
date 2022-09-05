@@ -164,7 +164,7 @@ const Editprofile = () => {
 
       {
         redirect === true ?
-          <Navigate to="/" />
+          <Navigate to="/profile" />
           : null
       }
 

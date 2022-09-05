@@ -76,7 +76,7 @@ const Header = () => {
                     {
                         authstate === "logged" ?
 
-                            <Link to="/Profile" onClick={OpenNav} >
+                            <Link to="/profile" onClick={OpenNav} >
                                 <li className="nav-item"  >
                                     Account
 
@@ -115,7 +115,7 @@ const Header = () => {
                                 :
                                 authstate === "error" ?
 
-                                    <Link to="/logout" className='login' onClick={OpenNav} >
+                                    <Link to="/login" className='login' onClick={OpenNav} >
                                         <li className="nav-item login" >
                                             Error
                                         </li>

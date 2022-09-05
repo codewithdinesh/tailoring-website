@@ -1,23 +1,30 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+
 import Faq from "./components/pages/Faq";
 import Header from "./components/components/Header";
 import Cart from "./components/pages/Cart";
 import Contact from "./components/pages/Contact";
-import Signup from "./components/pages/Signup";
 import { Main } from "./components/pages/Main";
+
+import Signup from "./components/pages/Signup";
 import EditProfile from "./components/pages/dashboards/EditProfile";
 import Profile from "./components/pages/Profile";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from "./components/pages/Login";
+import LogOut from "./components/pages/LogOut";
+import AuthWrapper from "./components/Screens/AuthWrapper";  // this is for wraping component into Auth
+
+/* Dashboard */
+import { UpdatePassword } from "./components/pages/dashboards/UpdatePassword";
+import { DeleteProfile } from "./components/pages/dashboards/DeleteProfile";
+import { Orders } from "./components/pages/dashboards/Orders";
+
 
 import Product from "./components/pages/Product";
 import PageNotFOund from "./components/pages/PageNotFOund";
-import AuthWrapper from "./components/Screens/AuthWrapper";  // this is for wraping component into Auth
 
-import Login from "./components/pages/Login";
-import LogOut from "./components/pages/LogOut";
 import ScrollToTop from "./components/components/ScrollToTop"
-import { Orders } from "./components/pages/dashboards/Orders";
 
 
 function App() {
@@ -62,6 +69,8 @@ function App() {
           {/* Dashboard */}
           <Route path="/profile/edit" element={<EditProfile />} />
           <Route path="/profile/orders" element={<Orders />} />
+          <Route path="/profile/edit/password" element={<UpdatePassword />} />
+          <Route path="/profile/delete" element={<DeleteProfile />} />
 
           {/* Page Not Found */}
           <Route path="*" element={<PageNotFOund />} />

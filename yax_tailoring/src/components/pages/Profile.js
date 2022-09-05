@@ -1,3 +1,5 @@
+/* Dashboard Page */
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import AuthValidate from '../../Auth/AuthValidate';
@@ -52,7 +54,7 @@ export default function Profile() {
                 </div>
 
                 <div className="col-6 profile-col">
-                  <Link to={"/Profile/orders"}>
+                  <Link to={"/profile/orders"}>
                     <div className="p-3 border bg-light profile-element">Your Orders</div>
                   </Link>
                 </div>
@@ -65,8 +67,14 @@ export default function Profile() {
                 </div>
 
                 <div className="col-6 profile-col">
-                  <Link to={"/profile/update-password"}>
+                  <Link to={"/profile/edit/password"}>
                     <div className="p-3 border bg-light profile-element">Update Password</div>
+                  </Link>
+                </div>
+
+                <div className="col-6 profile-col">
+                  <Link to={"/profile/delete"}>
+                    <div className="p-3 border bg-light profile-element">Delete Account</div>
                   </Link>
                 </div>
               </div>

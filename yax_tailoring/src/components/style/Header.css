@@ -10,7 +10,7 @@
         transition: 0.3s;
         box-shadow:
             0 10px 27px rgba(0, 0, 0, 0.05);
-        height: 3.5rem;
+        height: 4rem;
         padding: 0px;
         z-index: 2;
         align-items: center;
@@ -22,7 +22,7 @@
         flex-direction: column;
         left: -110%;
         width: 100%;
-        top: 0.70rem;
+        top: 1rem;
         margin-top: 1rem;
         padding: 0.25rem;
         border-radius: 8px;

@@ -37,7 +37,7 @@
 
 .product-card-img {
     background-color: #ffcaa6;
-    height: 60%;
+    height: 46%;
     width: 100%;
     border-radius: .5rem;
     transition: .3s ease;
@@ -46,7 +46,8 @@
 
 .product-card-img img {
     width: 100%;
-    height: fit-content;
+    height: 100%;
+    object-fit: contain;
 }
 
 

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom"
 
 
 const AuthValidate = require("../../Auth/AuthValidate");
-
+const cookies = new Cookies();
 const LogOut = () => {
 
   // check logged or not
@@ -23,12 +23,13 @@ const LogOut = () => {
   }, [])
 
 
-  const onLogOut = () => {
-    const cookies = new Cookies();
+  const onLogOut = async () => {
+
     cookies.remove("token_id");
     cookies.remove("user_id");
 
-    alert("You are Logged Out Successfully")
+    await alert("You are Logged Out Successfully")
+    
     // hard redirect to home page
     window.location.href = "/";
 

@@ -60,12 +60,12 @@ export const Main = () => {
       <div className="container-max">
         <h3 className="services">Services We Offer</h3>
 
-        {/* Loading effect */}
+        {/* If Error while fetching  */}
         {
           isError === true ? <div className="container">
             <div className="card bg-white p-2 m-2">
 
-              <div class="alert alert-warning" role="alert">
+              <div className="alert alert-warning" role="alert">
                 Something Went Wrong
               </div>
               <div className="try-again">
@@ -77,7 +77,7 @@ export const Main = () => {
           </div> : null
         }
 
-        {/* If Error while fetching  */}
+        {/* Loading effect */}
         {
           isLoading === true ? <div className="d-flex justify-content-center mb-2 mt-0">
             <div className="spinner-border text-danger" role="status">

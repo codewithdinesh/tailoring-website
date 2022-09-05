@@ -1,6 +1,8 @@
-* {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-    sans-serif;
+.title {
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  background-image: linear-gradient(to top, rgb(227, 191, 179), rgb(204, 201, 223)) !important;
 }
 
 .edit-action-btn .btn {
@@ -12,9 +14,10 @@
   border: none;
 
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.edit-action-btn  .btn:hover {
+.edit-action-btn .btn:hover {
   background-color: rgb(74, 54, 45) !important;
   color: white;
 }

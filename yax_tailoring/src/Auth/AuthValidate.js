@@ -24,13 +24,9 @@ export default {
             let response = await fetch("http://localhost:5000/auth", {
                 method: "POST",
                 headers: headersList,
-
-
             });
 
             let data = await response.json();
-
-            console.log(data);
 
             if (response.ok) {
 
@@ -39,6 +35,7 @@ export default {
             }
             else {
 
+                // If Error then remove cookies from the client 
                 try {
 
                     cookies.remove("token_id");

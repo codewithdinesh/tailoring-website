@@ -15,8 +15,7 @@ const Header = () => {
 
     useEffect(() => {
         AuthValidate.default.onAuth().then(value => {
-            console.log(value)
-
+            // console.log(value)
             setAuthState(value);
 
         });

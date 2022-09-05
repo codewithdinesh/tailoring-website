@@ -12,7 +12,7 @@ const Order = (req, res) => {
 
     const fabrictype = req.body.fabrictype;
 
-    let location = req.body.location;
+    let location = req.body.address;
 
 
     // Check user is login or not
@@ -45,6 +45,8 @@ const Order = (req, res) => {
             return res.status(403).send({ "message": "Product not Found" });
         }
 
+        const orderedOn = new Date().toLocaleString();
+
         // return res.status(200).send(product);
         const newOrder = new order({
             productId: product._id,
@@ -52,6 +54,8 @@ const Order = (req, res) => {
             userID: req.user,
             description: description,
             location: location,
+            orderedOn: orderedOn,
+            orderStatus: 1,
             Customization: {
                 fabrictype: fabrictype,
                 size: size,

@@ -1,4 +1,8 @@
 const mongoose = require("mongoose");
+// Order status :
+// 0 - Order Cancel
+// 1 - Order Placed
+// 2 - Order Delivered
 
 const order = new mongoose.Schema({
 
@@ -16,7 +20,7 @@ const order = new mongoose.Schema({
         type: String,
         required: true
     },
-    
+
     userID: {
         type: mongoose.Types.ObjectId,
         required: [true, "user ID required"]
@@ -28,6 +32,10 @@ const order = new mongoose.Schema({
 
     location: {
         type: String,
+        required: true
+    },
+    orderStatus: {
+        type: Number,
         required: true
     },
 
